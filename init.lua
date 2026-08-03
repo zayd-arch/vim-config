@@ -9,6 +9,21 @@ vim.cmd("colorscheme kanagawa-wave")
 vim.pack.add({
 	{ src = "https://github.com/mason-org/mason.nvim", name = "mason" },
 })
+
+--neotree
+vim.pack.add({
+  {
+    src = 'https://github.com/nvim-neo-tree/neo-tree.nvim',
+    version = vim.version.range('3')
+  },
+  -- dependencies
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/MunifTanjim/nui.nvim",
+  -- optional, but recommended
+  "https://github.com/nvim-tree/nvim-web-devicons",
+})
+
+
 require("mason").setup({
 	ui = {
 		icons = {
@@ -19,18 +34,17 @@ require("mason").setup({
 	},
 })
 
+vim.opt.clipboard = "unnamedplus"
 --transparent background
-vim.cmd [[
-  highlight Normal guibg=none
-  highlight NonText guibg=none
-  highlight Normal ctermbg=none
-  highlight NonText ctermbg=none
-]]
+--vim.cmd [[
+--  highlight Normal guibg=none
+  --highlight NonText guibg=none
+  --highlight Normal ctermbg=none
+ -- highlight NonText ctermbg=none
+--]]
 
 
 
 
 
 
--- rest of the configuration
-require('options')
