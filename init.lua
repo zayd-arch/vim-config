@@ -21,7 +21,24 @@ vim.pack.add({
   "https://github.com/MunifTanjim/nui.nvim",
   -- optional, but recommended
   "https://github.com/nvim-tree/nvim-web-devicons",
+  "https://github.com/romgrk/barbar.nvim",
+
+
+  'https://github.com/nvim-tree/nvim-web-devicons',
+  "https://github.com/nvim-lualine/lualine.nvim"
+
+  })
+vim.pack.add({
+  { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range('1.*') },
 })
+
+require('blink.cmp').setup({
+  keymap = { preset = 'default' },
+  sources = { default = { 'lsp', 'path', 'buffer' } },
+})
+
+require('lualine').setup()
+
 
 
 require("mason").setup({
@@ -42,6 +59,13 @@ vim.opt.clipboard = "unnamedplus"
   --highlight Normal ctermbg=none
  -- highlight NonText ctermbg=none
 --]]
+
+
+
+
+
+
+
 
 
 
