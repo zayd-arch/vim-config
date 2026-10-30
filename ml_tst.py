@@ -2,9 +2,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
-df = pd.read_csv("/home/zayd/train.csv")
+df = pd.read_csv("/path/to/file")
 
-# 'updated' is your DataFrame here
 updated = df.drop(["Name", "Ticket", "Cabin", "Embarked", "Fare"], axis=1)
 
 updated.columns = updated.columns.str.strip()
@@ -17,10 +16,8 @@ updated = updated.dropna(subset=['Age'])
 corr = updated.corr(numeric_only=True)
 print(corr["Survived"].sort_values(ascending=False))
 
-# X uses the DataFrame 'updated'
 X = updated[["Parch", "Age", "Sex", "Pclass", "SibSp"]]
 
-# y is your target series
 y = updated["Survived"]
 
 X_train, X_test, y_train, y_test = train_test_split(
